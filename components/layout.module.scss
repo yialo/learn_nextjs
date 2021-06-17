@@ -1,0 +1,17 @@
+@use "../styles/variables.scss" as vars;
+
+.container {
+  margin: 3rem auto 6rem;
+  min-width: vars.$some-width;
+  padding: 0 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backToHome {
+  margin-top: 3rem;
+}
