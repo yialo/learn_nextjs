@@ -5,11 +5,7 @@ import { Layout } from '../../components/layout';
 
 export default function FirstPost() {
   return (
-    <Layout>
-      <Head>
-        <title>First post</title>
-      </Head>
-
+    <Layout title="First post">
       <h1>First post</h1>
       <h2>
         <Link href="/">

@@ -8,10 +8,11 @@ import style from './layout.module.scss';
 const NAME = 'Yialo';
 export const SITE_TITLE = 'Next.js Sample Website';
 
-export function Layout({ children, home }) {
+export function Layout({ children, home, title }) {
   return (
     <>
       <Head>
+        <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
