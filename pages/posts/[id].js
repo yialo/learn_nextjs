@@ -1,14 +1,20 @@
 import { Layout } from '../../components/layout';
 
+import { Time } from '../../components/time';
 import { getAllPostIds, getPostData  } from '../../lib/posts';
+
+import utilStyle from '../../styles/utils.module.scss';
 
 export default function Post({ postData }) {
   return (
     <Layout title={postData.title}>
-      <h1>{postData.title}</h1>
-      <p>{postData.id}</p>
-      <p>{postData.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <article>
+        <h1 className={utilStyle.headingXl}>{postData.title}</h1>
+        <div className={utilStyle.lightText}>
+          <Date dateString={postData.date} />
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </article>
     </Layout>
   );
 }
