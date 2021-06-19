@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FC } from 'react';
 
 import utilStyle from '../styles/utils.module.scss';
 import style from './layout.module.scss';
@@ -8,7 +9,12 @@ import style from './layout.module.scss';
 const NAME = 'Yialo';
 export const SITE_TITLE = 'Next.js Sample Website';
 
-export function Layout({ children, home, title }) {
+type Props = {
+  home: boolean;
+  title: string;
+};
+
+export const Layout: FC<Props> = ({ children, home, title }) => {
   return (
     <>
       <Head>
@@ -82,4 +88,4 @@ export function Layout({ children, home, title }) {
       </div>
     </>
   );
-}
+};

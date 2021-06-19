@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import { GetStaticProps } from 'next';
 
 import { Time } from '../components/time';
 import { Layout, SITE_TITLE } from '../components/layout';
@@ -28,7 +28,7 @@ export default function Home({ allPostsData }) {
               </Link>
               <br />
               <small className={utilStyle.lightText}>
-                <Date dateString={date} />
+                <Time dateString={date} />
               </small>
             </li>
           ))}
@@ -38,7 +38,7 @@ export default function Home({ allPostsData }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
 
   return {
@@ -46,4 +46,4 @@ export async function getStaticProps() {
       allPostsData,
     },
   };
-}
+};
