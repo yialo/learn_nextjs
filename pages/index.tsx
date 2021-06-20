@@ -7,7 +7,15 @@ import { getSortedPostsData } from '../lib/posts';
 
 import utilStyle from '../styles/utils.module.scss';
 
-export default function Home({ allPostsData }) {
+type Props = {
+  allPostsData: {
+    title: string;
+    date: string;
+    id: string;
+  }[],
+};
+
+export default function Home({ allPostsData }: Props) {
   return (
     <Layout home title={SITE_TITLE}>
       <section className={utilStyle.headingMd}>
@@ -38,7 +46,7 @@ export default function Home({ allPostsData }) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const allPostsData = getSortedPostsData();
 
   return {

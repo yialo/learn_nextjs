@@ -15,7 +15,7 @@ type Props = {
   };
 };
 
-export default function Post({ postData }) {
+export default function Post({ postData }: Props) {
   return (
     <Layout home={false} title={postData.title}>
       <article>
@@ -39,7 +39,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
-  const postData = await getPostDataById(params.id);
+  const postData = await getPostDataById(params!.id);
 
   return {
     props: {
