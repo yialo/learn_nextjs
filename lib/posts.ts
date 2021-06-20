@@ -52,8 +52,8 @@ export async function getPostData(id) {
 
   const matterResult = matter(fileContent);
 
-  const processContent = await remark().use(html).process(matterResult.content);
-  const contentHtml = processContent.toString();
+  const processedContent = await remark().use(html).process(matterResult.content);
+  const contentHtml = processedContent.toString();
 
   return {
     id,
