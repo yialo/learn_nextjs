@@ -7,6 +7,14 @@ import { getAllPostIds, getPostData  } from '../../lib/posts';
 
 import utilStyle from '../../styles/utils.module.scss';
 
+type Props = {
+  postData: {
+    title: string;
+    date: string;
+    contentHtml: string;
+  };
+};
+
 export default function Post({ postData }) {
   return (
     <Layout home={false} title={postData.title}>
@@ -26,7 +34,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+type Params = {
+  id: string;
+};
+
+export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
   const postData = await getPostData(params.id);
 
   return {
