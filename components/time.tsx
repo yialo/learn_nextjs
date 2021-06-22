@@ -1,6 +1,11 @@
 import { parseISO, format } from 'date-fns';
+import { FC } from 'react';
 
-export const Time = ({ dateString }) => {
+type Props = {
+  dateString: string;
+};
+
+export const Time: FC<Props> = ({ dateString }) => {
   const date = parseISO(dateString);
 
   return (
